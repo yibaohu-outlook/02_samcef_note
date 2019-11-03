@@ -1,0 +1,76 @@
+.DEL.*
+!
+! A. GEOMETRY
+! ===========
+! A.1. 2-D Geometry
+! ----------------
+.POINT
+ I 1 X  0. Y  0.
+ I 2 X 10. Y  0.
+ I 3 X 10. Y 60.
+ I 4 X  0. Y 60.
+ I 5 X 60. Y 30.
+ I 6 X 60. Y 25.
+.ARC I 1 CENTRE 5 RAYON 5. ANGLES -180 0
+     I 2 CENTRE 5 RAYON 5. ANGLES 0 180
+     I 3 CENTRE 5 RAYON 10.
+.DROITE I 4 POINT 2 TANG 3
+        CHOIX 1
+        I 5 POINT 3 TANG 3
+        CHOIX 2
+        I 6 POINT 1 2 3 4 1
+.LIM DECOUPE 4 3
+     DECOUPE 5 3
+.3LIM I 10 DIVISE 2 EN 2
+!
+! A.2. 2-D Mesher
+! --------------
+.CON AUTO
+.DOM AUTO
+.GEN
+MODIFIE LIGNE 6 8 ELEM 3
+MODIFIE LIGNE 6 DISTRIBUTION 2 2
+MODIFIE LIGNE 8 DISTRIBUTION 3 2
+MODIFIE LIGNE 1 3 ELEM 6
+MODIFIE LIGNE 2 10 ELEM 3
+MODIFIE DOMAINE 2 DECALAGE 3
+MODIFIE DOMAINE 2 PROGRESSION -1
+MAILLE 1 2
+GENERE
+.LIS RECOMBINE SEVERE 3
+!
+! B. HYPOTHESIS AND MATERIAL
+! ==========================
+.HYP MEMBRANE BIDIM
+.MAT I 1 NOM "mat1" YT 7500000. NT 2.5E-1 M 0. A 0.
+.AEL MAT "mat1"
+.PHP ATTRIBUT 1 2 THICK V 0.1
+!
+! C. BOUNDARY CONDITIONS
+! ======================
+.SEL GROUP "press" FACE LIGNE  1
+     GROUP "fixa" NOEUDS STRUC 0 BOITE XI -1.  61. 1. -1.
+.CLM FIX GROUP "fixa"
+!or .CLM FIX LIGNE 9
+.CLM PRES ARETE  GROUP "press" VAL 1.E-1 NC 1
+.FIN
+exit
+!
+! D. POST-PROCESSING
+! ==================
+.post
+.DES
+GRAP LEGEND 0
+GRAP FG = "first-m020.gra"  ! Save in a graphic file named first-m020.gra
+GRAP DIVISE CLOTURE 4       ! Divide the screen into four viewports
+CODE 163 MOD DEPL           ! The first one is activated by default,
+GRAP EFFACE ; VI            ! display the displacements moduli after erasing all the screen.
+GRAP SELECT CLOTURE 2       ! Activate now the second viewport and...
+.DES CODE 163 VECT DEPL ; VI! display the displacements vectors
+GRAP SELECT CLOTURE 3       ! Activate the third viewport and...
+.DES CODE 1411; VI          ! display the stress tensor
+GRAP SELECT CLOTURE 4       ! Activate the last viewport and...
+.DES CODE 1411; VONMISES; VI ! display the VonMises stresses
+GRAP FG 0                   ! close the graphic file
+exit
+return

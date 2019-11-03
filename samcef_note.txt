@@ -1,3 +1,6 @@
+22 .DEL.*
+21  DOSKEY SAMCEF=C:\SamcefV13.1-05\samcef.cmd $*
+20  BACON common pre-and post-processing software
 	Definition of functions
 19 .FCT
 	Display of F. E. modeling data and Display of results
@@ -50,3 +53,12 @@ MAILLE: mesh
 3DROI: line for 3d
 3poin:point for 3d
 abre:abreviation
+
+license:
+SAM_USE_UGS = switch to Flexlm UGS license server, when set to 1 (no other value allowed)
+
+ LMS_LICENSE = path to RLM (path, path+LMS*.lic, and/or servers port@hostname)
+ SAM_CLE = path to file SAMCEF.CLE (free demo license file)
+ SPLM_LICENSE_SERVER = path to a Flexlm UGS license (path+ugslmd*.lic, and/or servers port@hostname)
+ SAM_USE_FLEXLM = switch to legacy Flexlm SAMTECH license server, when set to 1 (no other value allowed)
+ SAMTECH_LICENSE_FILE = path to a legacy Flexlm SAMTECH license (path+SAMTECH.LIC and/or servers port@hostname)

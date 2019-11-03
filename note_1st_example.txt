@@ -1,10 +1,27 @@
-DOSKEY SAMCEF=C:\SCSamcef\2019r2_1884_i4\Execsamcef.cmd $*
+
+DOSKEY samcef=C:\SCSamcef\2019r2_1884_i4\Execsamcef.cmd $*
 
 samcef ba,as,bp first-m020 n 1
 
 ba for BACON (pre-processing), 
 as for ASEF (analysis) and 
 bp for BACONPOST (post-processing)) in interactive mode and to specify the bank file name
+
+------------------------------------------------
+*example
+DOSKEY SAMCEF="C:\Samtech\Samcef\V181_x64_i8\Exec\samcef.cmd" $*
+d:
+cd D:\a_NXN_V12\NXN1204\christophe\pr\pair\eud_small_strain\GAUSS
+SAMCEF bp sam_0712_gauss
+module: me
+.DOC DB "sam_0712_gauss"
+ASSIGN FAC "sam_0712_gauss_me"
+.DES
+list DES
+CODE 1360 rtime 0.16
+list
+------------------------------------------------
+
 
 
 file:///C:/SCSamcef/2019r2_1884_i4/Dochtml/m001/access-gets-m001.html#execution
