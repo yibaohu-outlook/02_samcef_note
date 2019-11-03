@@ -1,0 +1,49 @@
+DOSKEY SAMCEF=C:\SCSamcef\2019r2_1884_i4\Execsamcef.cmd $*
+
+samcef ba,as,bp first-m020 n 1
+
+ba for BACON (pre-processing), 
+as for ASEF (analysis) and 
+bp for BACONPOST (post-processing)) in interactive mode and to specify the bank file name
+
+
+file:///C:/SCSamcef/2019r2_1884_i4/Dochtml/m001/access-gets-m001.html#execution
+
+ASEF	as	
+BACON	ba	
+CVBIN	cv	
+DYNAM	dy	
+FAC	    fa	
+MECANO	me	
+MECANO /Amaryllis mt		
+MECANO /Thermal	mt
+POSTFAC	po
+REPDYN	re
+ROTOR	ro
+SPECTRAL	sp
+STABI	st
+
+1	Interactive Mode
+2	Background Mode
+3	Batch Mode
+4	Delayed Mode
+5	Detached Mode
+
+
+samcef chain_definition [problem_name] [keep_link_files?] [execution_mode] [param1=value1] [...] 
+Where:
+
+chain_definition is the list of modules to run;
+
+problem_name is the name of the problem (default: test);
+
+keep_link_files? has two available values: y (yes) or n (no) (default: n);
+
+execution_mode takes one of the following value: 1|2|3|4|5 (default: 1).
+
+Examples
+
+samcef as,st trial n 2
+samcef as,st mode=2 link=n name=trial nproc=4
+
+file:///C:/SCSamcef/2019r2_1884_i4/Dochtml/m001/access-java-m001.html
