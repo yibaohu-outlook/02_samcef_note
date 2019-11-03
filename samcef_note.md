@@ -1,5 +1,0 @@
-
-
-2.
-1. samcef manual
-   https://docs.plm.automation.siemens.com/data_services/resources/nx/1872/nx_help/custom/en_US/samcef_solver_documentation/m001/gets-m001.html
