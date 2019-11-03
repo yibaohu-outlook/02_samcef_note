@@ -1,3 +1,52 @@
-2.
-1. samcef manual
+	Definition of functions
+19 .FCT
+	Display of F. E. modeling data and Display of results
+18 .DES
+	Generation of straight line segments (2-D)
+17 .dro/droi
+	Loading data
+16 .DOC	
+	It allows you to separate several data sets present in the same bank,
+	When the program encounters this command in a dataset, it stops reading the bank file and returns control of the execution sequence to the user.
+15  EXIT/RETURN
+	selection of results for printout and storage
+14 .SAI
+	Defining mechanical boundary conditions
+13 .CLM	
+	Defining physical properties
+12 .PHP	
+	Element Attributes
+11 .ael
+	Material properties
+10 .mat
+	Renumbering of nodes and cells
+9  .renum
+	Mesh generation by extrusion
+8  .ext 
+    Automatic mesh generation
+7  .gen
+    Generation of domains
+6  .doma
+	Generation of closed contours
+5  .cont
+     Not find.
+4  .init 
+   .SEL GROUPE 2 NOEUDS
+   .SEL GROUPE "First" MAILLE
+   .SEL GROUPE 6 NOM "Pressure" FACES
+   .SEL GROUPE 2
+   .SEL GROUPE "First" 
+3  .SEL: Selecting Groups of Nodes, Cells, Interfaces and Faces   
+   Pre-defined hypothesis
+2 .HYP: Modeling hypothesis
+1  samcef manual
    https://docs.plm.automation.siemens.com/data_services/resources/nx/1872/nx_help/custom/en_US/samcef_solver_documentation/index.html
+   
+BOÎTE:  box
+NOEUDS: node
+MAILLE: mesh  
+
+!:comment out
+3DROI: line for 3d
+3poin:point for 3d
+abre:abreviation
